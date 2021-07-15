@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import StartPage from './pages/StartPage';
+import QuizPage from './pages/QuizPage';
+import EndPage from './pages/EndPage';
 
 function App() {
+  const [step, setStep] = React.useState(1)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        {step === 1 && <StartPage setStep={setStep}/>}
+        {step === 2 && <QuizPage setStep={setStep}/>}
+        {step === 3 && <EndPage setStep={setStep}/>}
+      </div>
   );
 }
 
